@@ -21,6 +21,10 @@ function Counter() {
     navigate('/user/dashboard')
   }
 
+  const goAdmin = () => {
+    navigate('/admin/dashboard')
+  }
+
   return (
     <div>
       <div className={styles.row}>
@@ -67,6 +71,7 @@ function Counter() {
         </button>
       </div>
       <Button onClick={goDashboard}>Link to Dashboard</Button>
+      <Button onClick={goAdmin}>Link to Admin</Button>
     </div>
   )
 }

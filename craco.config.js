@@ -15,7 +15,7 @@ module.exports = {
               '@font-family':
                 "Poppins, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol','Noto Color Emoji'",
 
-              '@primary-color': '#10aEF8',
+              '@primary-color': '#F28021',
 
               '@border-radius-base': '10px',
 
@@ -30,7 +30,7 @@ module.exports = {
 
               // Input field
               '@input-bg': '#F8F8F8',
-              '@input-hover-border-color': '#10aEF8',
+              '@input-hover-border-color': '#F28021',
 
               // Layout
               '@layout-body-background': 'transparent',
