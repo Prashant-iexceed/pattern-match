@@ -29,25 +29,38 @@ export const options = {
     },
     title: {
       display: true,
-      text: 'Chart.js Line Chart',
+      text: 'Year Analytics',
     },
   },
 }
 
-const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July']
+const labels = [
+  'January',
+  'February',
+  'March',
+  'April',
+  'May',
+  'June',
+  'July',
+  'August',
+  'september',
+  'October',
+  'November',
+  'December',
+]
 
-export const data = {
-  labels,
-  datasets: [
-    {
-      label: 'Dataset 1',
-      data: [10, 30, 6, 90, 40, 77],
-      borderColor: 'rgb(255, 99, 132)',
-      backgroundColor: 'rgba(255, 99, 132, 0.5)',
-    },
-  ],
-}
-
-export function Linechart() {
+// eslint-disable-next-line react/prop-types
+export function YearlyLineChart({ DataValues }) {
+  const data = {
+    labels,
+    datasets: [
+      {
+        label: 'Year Analytics',
+        data: [...DataValues],
+        borderColor: 'rgb(255, 99, 132)',
+        backgroundColor: 'rgba(255, 99, 132, 0.5)',
+      },
+    ],
+  }
   return <Line options={options} data={data} />
 }

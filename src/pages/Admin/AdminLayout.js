@@ -112,7 +112,7 @@ function AdminLayout() {
         >
           <Routes>
             <Route path="/dashboard" element={<Dashboard />} />
-            <Route path="/users" element={<Users />} />
+            <Route path="/users/*" element={<Users />} />
             <Route path="/predictions" element={<Predictions />} />
             <Route path="/reports" element={<Reports />} />
             <Route path="/profile" element={<Card>Profile</Card>} />

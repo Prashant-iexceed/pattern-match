@@ -1,7 +1,21 @@
 import React from 'react'
-import { Card, Table } from 'antd'
+import { Button, Card, Table, Typography } from 'antd'
+import { Route, Routes, useNavigate } from 'react-router-dom'
+import Error404 from '../../../components/Errror404'
+import Transactions from '../Transactions/Transactions'
+import Analytics from '../Analytics/Analytics'
 
 function Users() {
+  const navigate = useNavigate()
+
+  function handleViewTransaction(_id) {
+    navigate(`/admin/users/${_id}/transactions`)
+  }
+
+  function handleViewAnalytics(_id) {
+    navigate(`/admin/users/${_id}/analytics`)
+  }
+
   const dataset = [
     {
       _id: '6664271e66cb1ac2237a0d35',
@@ -55,11 +69,6 @@ function Users() {
   ]
   const columns = [
     {
-      title: 'Id',
-      dataIndex: '_id',
-      key: '_id',
-    },
-    {
       title: 'Name',
       dataIndex: 'name',
       key: 'name',
@@ -80,12 +89,41 @@ function Users() {
       dataIndex: 'email',
       key: 'email',
     },
+    {
+      title: 'Transactions',
+      dataIndex: '_id',
+      key: '_id',
+      render: (_id) => (
+        <Button onClick={() => handleViewTransaction(_id)}>View</Button>
+      ),
+    },
+    {
+      title: 'Analytics',
+      dataIndex: '_id',
+      key: '_id',
+      render: (_id) => (
+        <Button onClick={() => handleViewAnalytics(_id)} type="primary">
+          View
+        </Button>
+      ),
+    },
   ]
 
   return (
-    <Card title="Users">
-      <Table columns={columns} dataSource={dataset} pagination />
-    </Card>
+    <Routes>
+      <Route
+        path="/"
+        element={
+          <Card title="Users">
+            <Table columns={columns} dataSource={dataset} pagination />
+          </Card>
+        }
+      />
+      <Route path="/:userId/*" element={<Typography>User</Typography>} />
+      <Route path="/:userId/transactions" element={<Transactions />} />
+      <Route path="/:userId/analytics" element={<Analytics />} />
+      <Route path="/*" element={<Error404 />} />
+    </Routes>
   )
 }
 
